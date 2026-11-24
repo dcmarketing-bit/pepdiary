@@ -23,7 +23,7 @@
   html{scroll-behavior:smooth}
   body{margin:0;background:var(--ivory);color:var(--pine);font-family:'DM Sans',system-ui,sans-serif;font-size:18px;line-height:1.55;-webkit-font-smoothing:antialiased}
   a{color:var(--pine)}
-  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 24px}
   .mono{font-family:'DM Mono',ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;font-size:13px;color:var(--sec)}
   .serif{font-family:'Fraunces',Georgia,serif}
 
@@ -49,13 +49,15 @@
 
   /* hero */
   .hero{padding:48px 0 32px}
-  .hero .wrap{display:grid;gap:28px}
-  .hero h1{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(52px,9vw,112px);line-height:.98;letter-spacing:-.035em;margin:0}
+  .hero .wrap{display:grid;gap:40px;align-items:center}
+  .hero-text{display:grid;gap:28px;align-content:center}
+  @media (min-width:900px){.hero .wrap{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:56px}}
+  .hero h1{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(52px,7vw,100px);line-height:.98;letter-spacing:-.035em;margin:0}
   .hero h1 em{font-style:italic;font-weight:300;color:var(--sage-d)}
   .hero p.lead{font-size:clamp(19px,2.2vw,23px);max-width:620px;margin:0;color:var(--sec)}
-  .photo{margin:16px 0 0;border-radius:28px;overflow:hidden;background:var(--mint);aspect-ratio:3/1}
-  .photo img{display:block;width:100%;height:100%;object-fit:cover}
-  @media (max-width:640px){.photo{aspect-ratio:4/3}.photo img{object-position:50% 50%}}
+  .photo{margin:0;border-radius:28px;overflow:hidden;background:var(--mint);aspect-ratio:4/5}
+  .photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 45%}
+  @media (max-width:899px){.photo{aspect-ratio:4/3}}
 
   /* chain divider */
   .chain{display:flex;align-items:center;justify-content:center;padding:56px 0 8px}
@@ -121,6 +123,7 @@
 <main id="top">
   <section class="hero" style="padding-top:28px">
     <div class="wrap">
+      <div class="hero-text">
       <div class="mono">Peptide notes · Short chains, clear answers</div>
       <h1>Peptides,<br><em>made simple.</em></h1>
       <p class="lead">Clean, fact-checked notes on the peptides everyone is talking about, from serums to syringes. One simple infographic at a time.</p>
@@ -133,6 +136,7 @@
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 3c.3 2.1 1.6 3.6 3.9 3.8v3.1c-1.4.1-2.7-.3-3.9-1.1v5.9c0 3.2-2.4 5.8-5.7 5.8S5 18 5 14.8c0-3.4 2.9-6 6.4-5.6v3.2c-1.5-.4-3.2.6-3.2 2.4 0 1.4 1.1 2.5 2.5 2.5 1.5 0 2.6-1.1 2.6-2.8V3h3.3z"/></svg>
           View TikTok
         </a>
+      </div>
       </div>
       <figure class="photo reveal">
         <img src="assets/hero.jpg" alt="A hand holding a small pep.diary peptide vial" width="2172" height="724">
