@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>pep.diary · Peptides, made simple.</title>
+<meta name="description" content="Clean, fact-checked notes on the peptides everyone is talking about, from serums to syringes. Simple infographics with an evidence label on every note.">
+<meta property="og:title" content="pep.diary · Peptides, made simple.">
+<meta property="og:description" content="Clean, fact-checked peptide notes. Simple infographics with an evidence label on every note.">
+<meta property="og:image" content="assets/og.jpg">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#F6F4EE">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ivory:#F6F4EE; --white:#FFFFFF; --mint:#E3EDE6; --serum:#CFE1E6; --sage:#9DB8A2;
+    --sage-d:#4F7A5E; --peach:#F0C7AE; --copper:#C2794A; --pine:#1F3D36; --sec:#3E5A52; --line:#D9DED8;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--ivory);color:var(--pine);font-family:'DM Sans',system-ui,sans-serif;font-size:18px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  a{color:var(--pine)}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  .mono{font-family:'DM Mono',ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;font-size:13px;color:var(--sec)}
+  .serif{font-family:'Fraunces',Georgia,serif}
+
+  /* header */
+  header{padding:22px 0}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+  .brand svg{width:40px;height:40px}
+  .brand span{font-family:'Fraunces',serif;font-size:28px;letter-spacing:-.02em}
+  .dot{color:var(--sage-d)}
+
+  /* CTA (the only action on the page) */
+  .cta{display:inline-flex;align-items:center;gap:12px;min-height:52px;padding:14px 26px;border-radius:999px;background:var(--pine);color:var(--ivory);text-decoration:none;font-weight:700;font-size:17px;transition:transform .2s ease, background .2s ease}
+  .cta:hover{background:#2C5148;transform:translateY(-1px)}
+  .cta:focus-visible{outline:3px solid var(--copper);outline-offset:3px}
+  .cta svg{width:20px;height:20px}
+  .cta.small{min-height:44px;padding:10px 18px;font-size:15px}
+
+  /* hero */
+  .hero{padding:48px 0 32px}
+  .hero .wrap{display:grid;gap:28px}
+  .hero h1{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(52px,9vw,112px);line-height:.98;letter-spacing:-.035em;margin:0}
+  .hero h1 em{font-style:italic;font-weight:300;color:var(--sage-d)}
+  .hero p.lead{font-size:clamp(19px,2.2vw,23px);max-width:620px;margin:0;color:var(--sec)}
+  .photo{margin:16px 0 0;border-radius:28px;overflow:hidden;background:var(--mint);aspect-ratio:3/1}
+  .photo img{display:block;width:100%;height:100%;object-fit:cover}
+  @media (max-width:640px){.photo{aspect-ratio:4/3}.photo img{object-position:50% 50%}}
+
+  /* chain divider */
+  .chain{display:flex;align-items:center;justify-content:center;padding:56px 0 8px}
+  .chain i{width:22px;height:22px;border-radius:50%;border:2.5px solid var(--pine);display:block}
+  .chain b{width:34px;height:2.5px;background:var(--pine);display:block}
+
+  /* sections */
+  section{padding:56px 0}
+  h2{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(36px,5vw,56px);line-height:1.05;letter-spacing:-.025em;margin:10px 0 28px}
+  h2 em{font-style:italic;font-weight:300;color:var(--sage-d)}
+  .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+  @media (max-width:860px){.grid{grid-template-columns:1fr}}
+  .card{background:var(--white);border-radius:24px;padding:30px;display:flex;flex-direction:column;gap:12px}
+  .card .ico{width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+  .card .ico svg{width:28px;height:28px}
+  .card h3{font-family:'Fraunces',serif;font-weight:400;font-size:28px;margin:4px 0 0;letter-spacing:-.01em}
+  .card p{margin:0;color:var(--sec)}
+
+  /* evidence labels */
+  .labels{background:var(--pine);color:var(--ivory);border-radius:32px;padding:48px 40px}
+  .labels .mono{color:var(--serum)}
+  .labels h2{color:var(--ivory)} .labels h2 em{color:var(--sage)}
+  .chips{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+  @media (max-width:860px){.chips{grid-template-columns:1fr}.labels{padding:36px 24px}}
+  .chip{border-radius:20px;padding:22px 24px;color:var(--pine)}
+  .chip .tag{display:inline-block;font-family:'DM Mono',monospace;font-size:13px;letter-spacing:.1em;text-transform:uppercase;padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.65);margin-bottom:12px}
+  .chip p{margin:0;font-size:17px}
+
+  /* closing */
+  .close{text-align:center;padding:80px 0 64px}
+  .close h2{margin:0 auto 26px;max-width:720px}
+  footer{border-top:1px solid var(--line);padding:28px 0 40px;color:var(--sec);font-size:15px}
+  footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+
+  /* gentle reveal */
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease, transform .7s ease}
+  .reveal.on{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.cta{transition:none}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="pep.diary home">
+      <svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
+        <path d="M24 54 L36 44 L26 32" stroke="#1F3D36" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M29 28 C30 16 38 10 50 9 C50 21 42 28 29 28 Z" fill="#9DB8A2" stroke="#1F3D36" stroke-width="2.5" stroke-linejoin="round"/>
+        <path d="M31 26 L44 15" stroke="#1F3D36" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="24" cy="54" r="5" fill="#9DB8A2" stroke="#1F3D36" stroke-width="2.5"/>
+        <circle cx="36" cy="44" r="5" fill="#FFFFFF" stroke="#1F3D36" stroke-width="2.5"/>
+        <circle cx="26" cy="32" r="5" fill="#F0C7AE" stroke="#1F3D36" stroke-width="2.5"/>
+      </svg>
+      <span>pep<span class="dot">.</span>diary</span>
+    </a>
+    <a class="cta small" href="https://www.instagram.com/pep.diary/" target="_blank" rel="noopener">View Instagram</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" style="padding-top:28px">
+    <div class="wrap">
+      <div class="mono">Peptide notes · Short chains, clear answers</div>
+      <h1>Peptides,<br><em>made simple.</em></h1>
+      <p class="lead">Clean, fact-checked notes on the peptides everyone is talking about, from serums to syringes. One simple infographic at a time.</p>
+      <div>
+        <a class="cta" href="https://www.instagram.com/pep.diary/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          View Instagram
+        </a>
+      </div>
+      <figure class="photo reveal">
+        <img src="assets/hero.jpg" alt="A hand holding a small pep.diary peptide vial" width="2172" height="724">
+      </figure>
+    </div>
+  </section>
+
+  <div class="chain" aria-hidden="true"><i style="background:#9DB8A2"></i><b></b><i style="background:#fff"></i><b></b><i style="background:#F0C7AE"></i><b></b><i style="background:#CFE1E6"></i><b></b><i style="background:#E3EDE6"></i></div>
+
+  <section>
+    <div class="wrap">
+      <div class="mono">What you'll find</div>
+      <h2>Science notes, <em>without the noise.</em></h2>
+      <div class="grid">
+        <article class="card reveal">
+          <div class="ico" style="background:var(--mint)"><svg viewBox="0 0 24 24" fill="none" stroke="#1F3D36" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="5" cy="17" r="2.5"/><circle cx="12" cy="12" r="2.5"/><circle cx="19" cy="7" r="2.5"/><path d="M7 15.5 L10 13.5 M14 10.5 L17 8.5"/></svg></div>
+          <h3>Peptide spotlights</h3>
+          <p>One peptide per note: what it is, where you find it, and what the research actually looks at.</p>
+        </article>
+        <article class="card reveal">
+          <div class="ico" style="background:var(--serum)"><svg viewBox="0 0 24 24" fill="none" stroke="#1F3D36" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3 h6 M10 3 v6 L5 18 a2 2 0 0 0 2 3 h10 a2 2 0 0 0 2-3 L14 9 V3"/><path d="M7.5 14 h9"/></svg></div>
+          <h3>Animated explainers</h3>
+          <p>Short reels that show peptides at work inside the body, so the science clicks in seconds.</p>
+        </article>
+        <article class="card reveal">
+          <div class="ico" style="background:#F6E2D5"><svg viewBox="0 0 24 24" fill="none" stroke="#1F3D36" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4 h11 a3 3 0 0 1 3 3 v13 H8 a3 3 0 0 1-3-3 Z"/><path d="M9 9 h6 M9 13 h6"/></svg></div>
+          <h3>Myth vs fact</h3>
+          <p>The claims you keep seeing online, checked against the sources and explained in plain words.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="labels reveal">
+        <div class="mono">Our promise</div>
+        <h2>An evidence label <em>on every note.</em></h2>
+        <div class="chips">
+          <div class="chip" style="background:var(--sage)"><span class="tag">Approved medicine</span><p>Reviewed and approved by regulators, like GLP-1 medicines.</p></div>
+          <div class="chip" style="background:var(--peach)"><span class="tag">Small human studies</span><p>Some promising results in people, but the studies are still small.</p></div>
+          <div class="chip" style="background:var(--serum)"><span class="tag">Early research</span><p>Mostly lab or animal studies so far. Interesting, not proven.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="close">
+    <div class="wrap">
+      <h2>New notes every week, <em>right on Instagram.</em></h2>
+      <a class="cta" href="https://www.instagram.com/pep.diary/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        View Instagram
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 pep.diary · Peptides, made simple.</span>
+    <span>For education only. Not medical advice.</span>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('on'); }); return; }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('on'); io.unobserve(en.target); } });
+    }, { threshold: 0.15 });
+    els.forEach(function (e) { io.observe(e); });
+  })();
+</script>
+</body>
+</html>
